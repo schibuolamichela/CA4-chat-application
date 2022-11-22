@@ -9,27 +9,28 @@
   
   /* Style the side navigation */
   .sidenav {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
+    width: 25%;
+    min-height: 100%;
+    //position: fixed;
+    //z-index: 1;
+    //top: 0;
+    //left: 0;
+    background-color: #f0a04b;
+    //overflow-x: hidden;
+    
   }
 
   /*make the active user text inherit style from container*/
 
   .inbox__people{
-      color: white;
+      color: black;
       padding: 16px;
   }
   
   
   /* Side navigation links */
   .sidenav a {
-    color: white;
+    color: black;
     padding: 16px;
     text-decoration: none;
     display: block;
@@ -45,6 +46,51 @@
   
   /* Style the content */
   .content {
-    margin-left: 200px;
-    padding-left: 20px;
+    width: 75%;
+    padding: 10px;
+    background-color: #fefbe9;
+    min-height: 100%;
+  }
+
+  /*----------------------------------------------------------------------------*/
+
+  .navbar-style
+  {
+    background-color: #183A1D;
+    padding: 20px;
+  }
+
+  .nav-elements
+  {
+    color: white;
+    text-decoration: none;
+  }
+  .nav-elements:hover
+  {
+    color: #f6c453;
+  }
+
+  .nav-link-style
+  {
+    
+    margin: 20px;
+  }
+
+  .nav-title-style
+  {
+    font-size: 30px;
+  }
+
+  .row-style
+  {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+  }
+
+  .message_form
+  {
+    border: solid #183A1D 1px;
+    padding: 15px;
+    border-radius: 15px;
   }
