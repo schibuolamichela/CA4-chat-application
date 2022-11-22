@@ -13,7 +13,7 @@ const server = app.listen(PORT, function () {
 app.use(express.static("public"));
 
 // Socket setup
-const io = socket(server);
+const io = socket(server); 
 
 //we use a set to store users, sets objects are for unique values of any type
 const activeUsers = new Set();
