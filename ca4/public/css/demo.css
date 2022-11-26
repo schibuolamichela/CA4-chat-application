@@ -1,124 +1,223 @@
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* Style the side navigation */
-  .sidenav {
-    width: 25%;
-    height: 85%;
+    /*height: 100%;*/
+}
+
+/* Style the side navigation */
+.sidenav {
     position: fixed;
-    bottom: 0;
+    top: 90px;
     left: 0;
+    bottom: 0;
     background-color: #f0a04b;
-  }
+}
 
-  /*make the active user text inherit style from container*/
+/*make the active user text inherit style from container*/
+.inbox__people {
+    color: black;
+    padding: 16px;
+}
 
-  .inbox__people{
-      color: black;
-      padding: 16px;
-  }
-  
-  
-  /* Side navigation links */
-  .sidenav a {
+/* Side navigation links */
+.sidenav a {
     color: black;
     padding: 16px;
     text-decoration: none;
     display: block;
-  }
+}
 
-
-  
-  /* Change color on hover */
-  .sidenav a:hover {
+/* Change color on hover */
+.sidenav a:hover {
     background-color: #ddd;
     color: black;
-  }
-  
-  /* Style the content */
-  .content {
-    width: 75%;
-    padding: 10px;
+}
+
+/* Style the content */
+.content {
     background-color: #fefbe9;
-    height: 85%;
     position: fixed;
+    top: 90px;
+    left: 25%;
     bottom: 0;
-    right: 0;
-  }
+}
 
-  /*----------------------------------------------------------------------------*/
-
-  .navbar-style
-  {
+/*----------------------------------------------------------------------------*/
+.navbar-style {
     background-color: #183A1D;
-    height: 15%;
+    height: 90px;
     width: 100%;
-    position: fixed;
+    /*position: fixed;
     top: 0;
-    left: 0;
-  }
+    left: 0;*/
+}
 
-  .nav-elements
-  {
+.nav-elements {
     color: white;
     text-decoration: none;
-  }
-  .nav-elements:hover
-  {
+}
+
+.nav-elements:hover {
     color: #f6c453;
-  }
+}
 
-  .nav-link-style
-  {
-    
+.nav-link-style {
     margin: 20px;
-  }
+}
 
-  .nav-title-style
-  {
+.nav-title-style {
     font-size: 30px;
-  }
+}
 
-  .row-style
-  {
+.row-style {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-  }
+}
 
-  .message_form
-  {
-    border: solid #183A1D 1px;
-    padding: 15px;
-    border-radius: 15px;
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;;
-  }
+.message_form {}
 
-  .message_form__input
-  {
+.message_form__input {
     /*width: 90%;*/
-    height: 50px;
+    height: 100%;
+    width: 100%;
     border-radius: 15px;
     border: solid #183A1D 1px;
+    padding: 10px;
+    word-break: break-word;
+}
 
-  }
+.message_form__input:focus {
+    border: solid #183A1D 1px;
+}
 
-  .message_form__button
-  {
+.message_form__button {
     height: 50px;
-    /*width: 50px;*/
+    width: 50px;
     border-radius: 100%;
     background-color: #f0a04b;
     color: white;
     border: 1px solid #183A1D;
     align-content: center;
-  }
+}
+
+.messages_container {
+    height: 70%;
+    overflow: scroll;
+}
+
+.form_container {
+    height: 30%;
+}
+
+.vertical-centered-div {
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  align-content: center;
+}
+
+.container {
+    margin: 20px;
+    border: solid #183A1D 1px;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.incoming__message {
+    width: 100%;
+    border-width: 1px;
+    border-color: #183A1D;
+}
+
+.received__message {
+    float: left;
+    background-color: #e1eedd;
+}
+
+.sent__message {
+    float: right;
+    background-color: #f6c453;
+}
+
+.message {
+    border: 1px solid #183A1D;
+    max-width: 80%;
+    min-width: 50%;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.message__author {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.text_message {
+    margin-left: 10px;
+    margin-right: 10px;
+    word-wrap: break-word;
+}
+
+.inbox_container
+{
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  background-color: #fefbe9AA;
+}
+
+.username_input
+{
+  margin: 20px;
+}
+
+.modal-footer
+{
+  justify-content: center;
+}
+
+.modal-title
+{
+  font-weight: bold;
+  color: #183A1D;
+}
+
+.modal-dialog
+{
+  border-radius: 15px;
+}
+
+.modal-content
+{
+  background-color: #fefbe9;  
+}
+
+.username_button
+{
+  background-color: #f0a04b;
+  border-color: #183A1D;
+  color: white;
+}
+.username_button:hover
+{
+  background-color: #183A1D;
+}
+
+.username_input
+{
+  border-radius: 15px;
+  border: 1px solid #183A1D;
+  padding: 5px;
+  background-color: transparent;
+}
+
+.username
+{
+  margin-left: 5px;
+}

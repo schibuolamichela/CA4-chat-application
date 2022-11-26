@@ -4,11 +4,10 @@ const socket = io();
 
 const inboxPeople = document.querySelector(".inbox__people");
 
-
 let userName = "";
 let id;
 const newUserConnected = function (data) {
-    
+
 
     //give the user a random unique id
     id = Math.floor(Math.random() * 1000000);
@@ -35,7 +34,7 @@ const addToUsersBox = function (userName) {
     //id is set to a string including the username
     const userBox = `
     <div class="chat_id ${userName}-userlist">
-      <h5>${userName}</h5>
+      <h5 class="username">${userName}</h5>
     </div>
   `;
     //set the inboxPeople div with the value of userbox
@@ -68,19 +67,22 @@ const addNewMessage = ({ user, message }) => {
 
   const receivedMsg = `
   <div class="incoming__message">
-    <div class="received__message">
-      <p>${message}</p>
+    <div class="message received__message">
       <div class="message__info">
         <span class="message__author">${user}</span>
+      </div>
+      <p class="text_message">${message}</p>
+      <div class="message__info">
         <span class="time_date">${formattedTime}</span>
       </div>
+      
     </div>
   </div>`;
 
   const myMsg = `
   <div class="outgoing__message">
-    <div class="sent__message">
-      <p>${message}</p>
+    <div class="message sent__message">
+      <p class="text_message">${message}</p>
       <div class="message__info">
         <span class="time_date">${formattedTime}</span>
       </div>

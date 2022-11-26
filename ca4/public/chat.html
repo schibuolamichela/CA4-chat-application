@@ -15,40 +15,75 @@
 </head>
 
 <body>
-    <nav class="navbar-style">
+    <nav class="navbar-expand-lg navbar-style">
         <div style="text-align: center;">
-            <a class="nav-title-style nav-elements" href="index.html">World Chat</a>
+            <a class="navbar-brand nav-title-style nav-elements" href="index.html">World Chat</a>
         </div>
-        <div style="text-align: center;">
-            <a class="nav-link-style nav-elements" href="index.html">HOME</a>
-            <a class="nav-link-style nav-elements" href="chat.html">CHAT</a>
-            <a class="nav-link-style nav-elements" href="about.html">ABOUT</a>
-        </div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link-style nav-elements" href="index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link-style nav-elements" href="chat.html">CHAT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link-style nav-elements" href="about.html">ABOUT</a>
+            </li>
+        </ul>
     </nav>
-    <div class="row row-style">
-        <div class="sidenav">
-            <div class="inbox__people">
-                <h4>Active users</h4>
-            </div>
-        </div>
-        <div class="content">
-            <div class="messages__history"></div>
-            <div class="fallback"></div>
-            <div class="inbox__messages"></div>
-            <div class="d-flex row">
-            <form class="message_form">
-                <div style="width: 90%">
-                    <input type="text" class="message_form__input" placeholder="Type a message" />
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Username</h1> 
                 </div>
-                <div style="width: 10%">
-                    <button class="message_form__button" type="submit"> Send </button>
+                <div class="modal-body"> Insert an username to let other people know who you are! </div>
+                <div class="modal-footer">
+                    <input type="text" class="username_input" placeholder="Insert your username" />
+                    <button type="button" class="btn btn-primary username_button">Enter</button>
                 </div>
-            </form>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-3 sidenav">
+            <div class="inbox_container container">
+                <div class="inbox__people">
+                    <h4 style="font-weight: bold;">Active users</h4>
+                </div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Launch static backdrop modal </button>
+            </div>
+        </div>
+        <div class="col-9 content">
+            <div class="messages_container container">
+                <div class="messages__history"></div>
+                <div class="fallback"></div>
+                <div class="inbox__messages"></div>
+            </div>
+            <div class="form_container container">
+                <form class="message_form">
+                    <div class="row">
+                        <div class="col-11">
+                            <textarea rows="5" cols="60" class="message_form__input" placeholder="Type a message"></textarea>
+                        </div>
+                        <div class="col-1 vertical-centered-div">
+                            <button class="message_form__button" type="submit"> Send </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/client.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#staticBackdrop').modal('show');
+        });
+    </script>
 </body>
 
 </html>
