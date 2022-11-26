@@ -5,13 +5,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Socket.io simple chat</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="/css/demo.css" />
+
 </head>
 
 <body>
@@ -32,44 +38,45 @@
         </ul>
     </nav>
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Username</h1> 
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Username</h1>
                 </div>
                 <div class="modal-body"> Insert an username to let other people know who you are! </div>
                 <div class="modal-footer">
-                    <input type="text" class="username_input" placeholder="Insert your username" />
-                    <button type="button" class="btn btn-primary username_button">Enter</button>
+                    <input type="text" class="username_input" placeholder="Insert your username" id="txtInputUser" />
+                    <button type="button" class="btn btn-primary username_button" id="modalButton">Enter</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-3 sidenav">
-            <div class="inbox_container container">
-                <div class="inbox__people">
+            <div class="inbox_container container" id="usersList">
+                <div class="h-100">
                     <h4 style="font-weight: bold;">Active users</h4>
+                    <div class="inbox__people">
+                    </div>
                 </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Launch static backdrop modal </button>
             </div>
         </div>
         <div class="col-9 content">
-            <div class="messages_container container">
-                <div class="messages__history"></div>
+            <div class="messages_container container" id="messages">
+                <div class="messages__history d-flex flex-column"></div>
                 <div class="fallback"></div>
                 <div class="inbox__messages"></div>
             </div>
             <div class="form_container container">
-                <form class="message_form">
-                    <div class="row">
+                <form class="message_form h-100" id="myform">
+                    <div class="row h-100">
                         <div class="col-11">
-                            <textarea rows="5" cols="60" class="message_form__input" placeholder="Type a message"></textarea>
+                            <textarea cols="60" class="message_form__input" placeholder="Type a message"
+                                id="textArea"></textarea>
                         </div>
-                        <div class="col-1 vertical-centered-div">
-                            <button class="message_form__button" type="submit"> Send </button>
+                        <div class="col-1 vertical-centered-div align-items-center">
+                            <button class="message_form__button" type="submit" id="btnSend"> Send </button>
                         </div>
                     </div>
                 </form>
@@ -80,9 +87,33 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/client.js"></script>
     <script type="text/javascript">
-        $(window).on('load', function() {
-            $('#staticBackdrop').modal('show');
+
+        var modal = document.getElementById('myModal');
+        var btnCloseModal = document.getElementById('modalButton');
+
+        modal.style.display = "block";
+        modal.className = "modal fade show";
+
+        btnCloseModal.addEventListener('click', (e) => {
+            modal.style.display = "none";
+            modal.className = "modal fade";
         });
+
+        const textArea = document.getElementById('textArea');
+        const button = document.getElementById('btnSend');
+
+        textArea.addEventListener('keydown', function (e) {
+            // Get the code of pressed key
+            const keyCode = e.which || e.keyCode;
+
+            // 13 represents the Enter key
+            if (keyCode === 13 && !e.shiftKey) {
+                // Don't generate a new line
+                e.preventDefault();
+                button.click();
+            }
+        });
+
     </script>
 </body>
 

@@ -9,36 +9,41 @@ let id;
 const newUserConnected = function (data) {
 
 
-    //give the user a random unique id
-    id = Math.floor(Math.random() * 1000000);
-    userName = 'user-' +id;
-    //console.log(typeof(userName));   
-    
+  //give the user a random unique id
+  id = Math.floor(Math.random() * 1000000);
 
-    //emit an event with the user id
-    socket.emit("new user", userName);
-    //call
-    addToUsersBox(userName);
+  userName = 'user-' + id;
+  //console.log(typeof(userName));   
+
+
+  //emit an event with the user id
+  socket.emit("new user", userName);
+  //call
+  addToUsersBox(userName);
 };
 
 const addToUsersBox = function (userName) {
-    //This if statement checks whether an element of the user-userlist
-    //exists and then inverts the result of the expression in the condition
-    //to true, while also casting from an object to boolean
-    if (!!document.querySelector(`.${userName}-userlist`)) {
-        return;
-    
-    }
-    
-    //setup the divs for displaying the connected users
-    //id is set to a string including the username
-    const userBox = `
+  //This if statement checks whether an element of the user-userlist
+  //exists and then inverts the result of the expression in the condition
+  //to true, while also casting from an object to boolean
+  if (!!document.querySelector(`.${userName}-userlist`)) {
+    return;
+
+  }
+
+  //setup the divs for displaying the connected users
+  //id is set to a string including the username
+  const userBox = `
     <div class="chat_id ${userName}-userlist">
       <h5 class="username">${userName}</h5>
     </div>
   `;
-    //set the inboxPeople div with the value of userbox
-    inboxPeople.innerHTML += userBox;
+  //set the inboxPeople div with the value of userbox
+  inboxPeople.innerHTML += userBox;
+
+  const divUsersList = document.getElementById('usersList');
+
+  divUsersList.scrollTop = divUsersList.scrollHeight;
 };
 
 //call 
@@ -47,8 +52,8 @@ newUserConnected();
 //when a new user event is detected
 socket.on("new user", function (data) {
   data.map(function (user) {
-          return addToUsersBox(user);
-      });
+    return addToUsersBox(user);
+  });
 });
 
 //when a user leaves
@@ -91,6 +96,10 @@ const addNewMessage = ({ user, message }) => {
 
   //is the message sent or received
   messageBox.innerHTML += user === userName ? myMsg : receivedMsg;
+
+  const divMessages = document.getElementById('messages');
+
+  divMessages.scrollTop = divMessages.scrollHeight;
 };
 
 messageForm.addEventListener("submit", (e) => {
