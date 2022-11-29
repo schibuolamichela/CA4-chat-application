@@ -7,9 +7,9 @@
     <title>Socket.io simple chat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
@@ -65,7 +65,7 @@
         <div class="col-9 content">
             <div class="messages_container container" id="messages">
                 <div class="messages__history d-flex flex-column"></div>
-                <div class="fallback"></div>
+                <div class="fallback" id="isTypingLabel"></div>
                 <div class="inbox__messages"></div>
             </div>
             <div class="form_container container">
@@ -76,7 +76,11 @@
                                 id="textArea"></textarea>
                         </div>
                         <div class="col-1 vertical-centered-div align-items-center">
-                            <button class="message_form__button" type="submit" id="btnSend"> Send </button>
+                            <button class="message_form__button" type="submit" id="btnSend">
+                                <h5>
+                                    Send
+                                </h5>
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -84,37 +88,10 @@
         </div>
     </div>
     </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/client.js"></script>
-    <script type="text/javascript">
 
-        var modal = document.getElementById('myModal');
-        var btnCloseModal = document.getElementById('modalButton');
-
-        modal.style.display = "block";
-        modal.className = "modal fade show";
-
-        btnCloseModal.addEventListener('click', (e) => {
-            modal.style.display = "none";
-            modal.className = "modal fade";
-        });
-
-        const textArea = document.getElementById('textArea');
-        const button = document.getElementById('btnSend');
-
-        textArea.addEventListener('keydown', function (e) {
-            // Get the code of pressed key
-            const keyCode = e.which || e.keyCode;
-
-            // 13 represents the Enter key
-            if (keyCode === 13 && !e.shiftKey) {
-                // Don't generate a new line
-                e.preventDefault();
-                button.click();
-            }
-        });
-
-    </script>
 </body>
 
 </html>
