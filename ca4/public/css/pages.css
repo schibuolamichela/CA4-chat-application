@@ -1,63 +1,61 @@
 /*GENERAL-------------------------*/
 /* Style all the div that are centered vertically aligned*/
-.vertical-centered-div 
-{
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
+.vertical-centered-div {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
 }
 
 /*HOME PAGE------------------------*/
 /* Style the row with the first image*/
 .slide-row {
-  position: relative;
-  text-align: center;
+    position: relative;
+    text-align: center;
 }
 
 /* Style the banner image*/
 .slide-img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  object-position: center;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* Style the div that overlays the banner image*/
 .text-overlay {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  transform: translate(-10%, -10%);
-  width: 50%;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    transform: translate(-10%, -10%);
+    width: 50%;
 
-  padding: 30px;
-  align-items: center;
+    padding: 30px;
+    align-items: center;
+
 }
 
 /* Style the image that overlays the banner image*/
-.img-overlay
-{
+.img-overlay {
     position: absolute;
-  top: 30%;
-  right: 5%;
-  transform: translate(-10%, -10%);
-  width: 30%;
-height: 60%;
+    top: 30%;
+    right: 5%;
+    transform: translate(-10%, -10%);
+    width: 30%;
+    height: 60%;
 
-  border-radius: 20px;
-  object-fit: cover;
-  object-position: center;
-  box-shadow: 5px 10px 5px #dedede;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 5px 10px 5px #dedede;
 }
 
 /* Style the title of the div that overlays the image*/
-.slide-title
-{
+.slide-title {
     background-color: #f0a04b;
     color: white;
     width: 100%;
     font-size: 40px;
-    
+
     text-align: center;
     padding: 20px;
     border-top-right-radius: 20px;
@@ -66,8 +64,7 @@ height: 60%;
 }
 
 /* Style the text of the div that overlays the image*/
-.slide-text
-{
+.slide-text {
     width: 100%;
     background-color: #183A1D;
     color: white;
@@ -80,20 +77,19 @@ height: 60%;
     border-bottom-left-radius: 20px;
     box-shadow: 5px 10px 5px #dedede;
 }
+
 /* Style the link in the div that overlays the image*/
-.slide-link
-{
+.slide-link {
     color: #f0a04b;
     text-decoration: underline;
 }
-.slide-link:hover
-{
+
+.slide-link:hover {
     color: white;
 }
 
 /* Style the divider below the banenr immage */
-.divider1-style
-{
+.divider1-style {
     background-color: #f0a04b;
     height: 50px;
     border-bottom-right-radius: 100%;
@@ -103,8 +99,7 @@ height: 60%;
 }
 
 /* Style the divider on the bottom of the page */
-.divider2-style
-{
+.divider2-style {
     background-color: #f0a04b;
     height: 50px;
     border-top-right-radius: 100%;
@@ -113,17 +108,25 @@ height: 60%;
     margin-top: 20px;
 }
 
-/* Style the images in the explanation divs */
-.img-div 
-{
-  vertical-align: middle;
-  width: 100%;
-  object-position: center;
-  overflow: hidden;
+/* Stile the div containing the information */
+.information {
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    flex-direction: column;
 }
 
-.home-div
-{
+/* Style the images in the explanation divs */
+.img-div {
+    vertical-align: middle;
+    width: 100%;
+    object-position: center;
+    overflow: hidden;
+
+}
+
+/* Style the divs that contains the main information */
+.home-div {
     padding: 5px;
     padding-left: 50px;
     padding-right: 50px;
@@ -134,22 +137,22 @@ height: 60%;
     box-shadow: 5px 10px 5px #dedede;
 }
 
-.card-style
-{
+/*
+.card-style {
     margin: 30px;
     padding: 20px;
     box-shadow: 5px 10px 5px #dedede;
     text-align: center;
-}
+}*/
 
-.info-title
-{
+/* Style the titles in the divs that contains the main information */
+.info-title {
     color: #183A1D;
     font-weight: bold;
 }
 
-.title-number
-{
+/* Style the numbers of the steps for using the chat */
+.title-number {
     background-color: #183A1D;
     color: white;
     font-weight: bolder;
@@ -162,22 +165,28 @@ height: 60%;
     box-shadow: 5px 10px 5px #dedede;
 }
 
-.title-text
-{
+/* Style the titles of the steps for using the chat */
+.title-text {
     background-color: #f0a04b;
     color: white;
     font-weight: bold;
     border-radius: 90px;
     display: inline-block;
-    width: 300px;
+    width: 20% auto;
     height: 90px;
     padding: 20px;
+    margin-left: .5rem;
     text-align: center;
     box-shadow: 5px 10px 5px #dedede;
 }
 
-.step-img
-{
+/* Style the numbers and the titles of the steps for using the chat */
+.step-title {
+    display: flex;
+}
+
+/* Style the images of the steps for using the chat */
+.step-img {
     margin: 30px;
     border-radius: 30px;
     width: 90%;
@@ -185,60 +194,59 @@ height: 60%;
     align-content: center;
 }
 
-.title
-{
+/* Style the bigger titles */
+.title {
     font-size: 60px;
     color: #183A1D;
     font-weight: bolder;
     text-align: center;
 }
 
-/*ABOUT*/
-.about-title
-{
+/*ABOUT ----------------------------------------*/
+/* Style the titles and their containers */
+.about-title {
     color: black;
     background-color: #e1eedd;
     width: 100%;
-    margin-left: 40px;
-    margin-right: 40px;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 5px 10px 5px #dedede;
-}
-.about-text
-{
-    color: white;
-    background-color: #f0a04b;
-    width: 100%;
-    margin-left: 60px;
-    margin-right: 60px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    padding: 30px;
-    box-shadow: 5px 10px 5px #dedede;
-}
-.about-box
-{
-    margin: 40px;
-}
-.about-main-title
-{
-    color: white;
-    background-color: #183A1D;
-    font-weight: bolder;
-    width: 100%;
-    margin-left: 40px;
-    margin-right: 40px;
     border-radius: 20px;
     padding: 30px;
     box-shadow: 5px 10px 5px #dedede;
 }
 
-.link-style
-{
+/* Style the texts and their containers */
+.about-text {
+    color: white;
+    background-color: #f0a04b;
+    margin-left: 40px;
+    margin-right: 40px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 30px;
+    box-shadow: 5px 10px 5px #dedede;
+}
+
+/* Style the titles and texts containers */
+.about-box {
+    margin: 40px;
+}
+
+/* Style the main titles */
+.about-main-title {
+    color: white;
+    background-color: #183A1D;
+    font-weight: bolder;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 5px 10px 5px #dedede;
+}
+
+/* Style the links */
+.link-style {
     color: #183A1D;
 }
-.link-style:hover
-{
-    color:white;
+
+.link-style:hover {
+    color: white;
 }

@@ -5,8 +5,8 @@ Michela Schibuola - 52209826
 The World Chat is a web site, which the main purpose is to provide a chat accessible from all over the world.
 
 ## Pages Description
-The web site is composed by a page which provides the chat, an home page which provides an overview of the site, and an about page which provides further details, supplementary and background information. Each page maintain the same style and uses the same palette of colors to let the site consistent.
-
+The web site is composed by a page which provides the chat, an home page which provides an overview of the site, and an about page which provides further details, supplementary and background information. 
+The design of each page maintain the same style and uses the same palette of colors to let the site consistent. The color palette is composed by two shades of green and three shades of green. 
 
 ##### Navigation-bar
 The navigation-bar is the same for each page. 
@@ -29,7 +29,7 @@ The messages sent from the current user is displayed on the right, the messages 
 
 To distinguish the users, each name has associated a color, and when a username is displayed, it is written with its associated color.
 
-
+The chat application from the client size communicate with the web server
 
 ##### Home Page
 The home page is a static page that comprehends an initial banner with a link to the chat and some images that represent the idea of the chat. Then there are written the main purposes and the characteristics of the chat. And in the bottom there are the 3 main steps to join and use the chat. 
@@ -40,12 +40,22 @@ The about page is a static page composed by containers that explain the importan
 ##### Footer
 At the end of the home and about page there is a footer, that uses the same method as the navbar: it uses the *footer.html*, *footer.js* files and the *<script>* tag.
 
-##Extras
-Personalized scroll bar
-Using the toast as notification
-Using the modal as input username
-Toast animations
-Random color to display the username
+## Extras
+To scroll just single areas in the chat application is used a personalized scroll bar, which is hide when not needed, but it appear when there is no more space for all the elements. It is used in every page, and specifically in the users list and messages list in chat.html. It has personalized colors and shape, because it has a different border-radius.
+
+To implement the username insertion, it is used the modal. The modal is a bootstrap component, that in this web site is used as input element. Before using the chat it is required to go through it.
+
+To implement the chat joining is used the toast. The toast is a bootstrap component. When a new user joins the chat it shows for a specific time and it can be removed using the x. It is improved with some animations in the entrance and in the exit.
 
 ## Challenges I faced
+The first challenge was to create a clear elements arrangement. To organize all the chat element in a page without scrolling. To do that I divided the screen in 3 parts: the sidebar with the users list, the chat history and the chat input.
+
+Another challenge was to implement the casual color choosing for the username.
+
+Another challenge was to manage the usernames in the cases the users decided to use spaces or let it start with a number. To solve that I used the id as identifier.
+
+I tried the web site in different devices to verify its portability, and I tried to reduce and increase the page zoom to verify if the pages were still readable in different screen resolutions. The use of bootstrap let the page with a responsive layout and consistency of design.
+
+## References
+[Bootstrap](https://getbootstrap.com/)
 

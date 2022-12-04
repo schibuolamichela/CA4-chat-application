@@ -16,8 +16,6 @@ body {
     align-content: center;
 }
 
-
-
 /* Style the content */
 .content {
     background-color: #fefbe9;
@@ -63,7 +61,7 @@ body {
     background-color: #f0a04b;
 }
 
-/*make the active user text inherit style from container*/
+/* Make the active user text inherit style from container*/
 .inbox__people {
     color: black;
     padding: 16px;
