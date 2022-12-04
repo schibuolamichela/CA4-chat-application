@@ -4,12 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Socket.io simple chat</title>
+    <title>Chat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
@@ -21,22 +18,22 @@
 </head>
 
 <body>
-    <nav class="navbar-expand-lg navbar-style">
-        <div style="text-align: center;">
-            <a class="navbar-brand nav-title-style nav-elements" href="index.html">World Chat</a>
+    <!-- Navbar -->
+    <script id="replace_with_navbar" src="common/nav.js"></script>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container position-fixed bottom-0 start-0 p-3">
+        <div id="notificationToast" class="ms-2 mb-2 toast animatedToast bg-toast"  role="alert"
+            aria-live="assertive" ** data-animation="true" ** data-autohide="true" aria-atomic="true">
+            <div class="toast-header bg-toast-header">
+                <strong class="me-auto" id="toastHeader"></strong>
+                <small id="toastTime"></small>
+                <button type="button" class="btn-close icon-green"  data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toastMessage"></div>
         </div>
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link-style nav-elements" href="index.html">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link-style nav-elements" href="chat.html">CHAT</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link-style nav-elements" href="about.html">ABOUT</a>
-            </li>
-        </ul>
-    </nav>
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
@@ -86,7 +83,6 @@
                 </form>
             </div>
         </div>
-    </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>

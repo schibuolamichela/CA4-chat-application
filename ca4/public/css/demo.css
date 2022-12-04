@@ -1,3 +1,4 @@
+/*GENERAL--------------------------------------*/
 * {
     box-sizing: border-box;
 }
@@ -5,9 +6,53 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    /*height: 100%;*/
 }
 
+/* Style for all the div centered vertically*/
+.vertical-centered-div {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    align-content: center;
+}
+
+
+
+/* Style the content */
+.content {
+    background-color: #fefbe9;
+    position: fixed;
+    top: 90px;
+    left: 25%;
+    bottom: 0;
+}
+
+/*NAVBAR--------------------------------*/
+/* Style the shape of the navbar */
+.navbar-style {
+    background-color: #183A1D;
+    height: 90px;
+    width: 100%;
+}
+/* Style the texts in the navbar */
+.nav-elements {
+    color: white;
+    text-decoration: none;
+}
+.nav-elements:hover {
+    color: #f6c453;
+}
+
+/* Style the links of the navbar */
+.nav-link-style {
+    margin: 20px;
+}
+/* Style the title of the navbar */
+.nav-title-style {
+    font-size: 30px;
+}
+
+/*SIDENAV-------------------------------------*/
 /* Style the side navigation */
 .sidenav {
     position: fixed;
@@ -40,154 +85,7 @@ body {
     color: black;
 }
 
-/* Style the content */
-.content {
-    background-color: #fefbe9;
-    position: fixed;
-    top: 90px;
-    left: 25%;
-    bottom: 0;
-}
-
-/*----------------------------------------------------------------------------*/
-.navbar-style {
-    background-color: #183A1D;
-    height: 90px;
-    width: 100%;
-    /*position: fixed;
-    top: 0;
-    left: 0;*/
-}
-
-.nav-elements {
-    color: white;
-    text-decoration: none;
-}
-
-.nav-elements:hover {
-    color: #f6c453;
-}
-
-.nav-link-style {
-    margin: 20px;
-}
-
-.nav-title-style {
-    font-size: 30px;
-}
-
-.row-style {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-}
-
-.message_form {}
-
-.message_form__input {
-    height: 100%;
-    width: 100%;
-    border-radius: 8px;
-    border: solid #183A1D 1px;
-    padding: 10px;
-    word-break: break-word;
-    resize: none;
-}
-
-.message_form__input:focus {
-    border: solid #183A1D 1px;
-    outline: none !important;
-    resize: none;
-}
-
-.message_form__button {
-    width: 6vw;
-    height: 6vw;
-
-    border-radius: 50%;
-    background-color: #f0a04b;
-    color: white;
-    border: 1px solid #183A1D;
-    align-content: center;
-    position: relative;
-}
-
-.message_form__button p {
-    transform: translate(-50%, -50%);
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 1em;
-}
-
-.messages_container {
-    height: 70%;
-    overflow-y: auto;
-    width: 100%;
-    max-width: 100%;
-    margin: 0px !important;
-    margin-top: 10px !important;
-}
-
-.form_container {
-    height: 25%;
-    margin: 0px !important;
-    margin-top: 10px !important;
-    width: 100%;
-    max-width: 100%;
-}
-
-.vertical-centered-div {
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
-    align-content: center;
-}
-
-.container {
-    margin: 20px;
-    border: solid #183A1D 1px;
-    padding: 15px;
-    border-radius: 8px;
-}
-
-.incoming__message {
-    width: 100%;
-    border-width: 1px;
-    border-color: #183A1D;
-}
-
-.received__message {
-    float: left;
-    background-color: #e1eedd;
-}
-
-.sent__message {
-    float: right;
-    background-color: #f6c453;
-}
-
-.message {
-    border: 1px solid #183A1D;
-    max-width: 80%;
-    min-width: 15%;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 5px;
-}
-
-.message__author {
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.text_message {
-    margin-left: 10px;
-    margin-right: 10px;
-    word-wrap: break-word;
-}
-
+/* Style the users list container*/
 .inbox_container {
     width: 100%;
     height: 100%;
@@ -197,27 +95,142 @@ body {
     max-width: 100%;
 }
 
+/*MESSAGES AREA--------------------------------*/
+/* Style of the textarea, messages input */
+.message_form__input {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    border: solid #183A1D 1px;
+    padding: 10px;
+    word-break: break-word;
+    resize: none;
+}
+.message_form__input:focus {
+    border: solid #183A1D 1px;
+    outline: none !important;
+    resize: none;
+}
+
+/* Style the send button */
+.message_form__button {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #f0a04b;
+    color: white;
+    border: 1px solid #183A1D;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.message_form__button h5 {
+    margin: 0;
+}
+
+/* Style the container of all messages */
+.messages_container {
+    height: 70%;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0px !important;
+    margin-top: 10px !important;
+}
+
+/* Style the container of the textarea and the send button */
+.form_container {
+    height: 25%;
+    margin: 0px !important;
+    margin-top: 10px !important;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Style the messages container and the textarea and send button container */
+.container {
+    margin: 20px;
+    border: solid #183A1D 1px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Style the incoming messages container */
+.incoming__message {
+    width: 100%;
+    border-width: 1px;
+    border-color: #183A1D;
+}
+
+/* Style the incoming messages */
+.received__message {
+    float: left;
+    background-color: #e1eedd;
+}
+
+/* Style the sent messages */
+.sent__message {
+    float: right;
+    background-color: #f6c453;
+}
+
+/* Style all the messages */
+.message {
+    border: 1px solid #183A1D;
+    max-width: 80%;
+    min-width: 15%;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Style the message author*/
+.message__author {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Style the text message */
+.text_message {
+    margin-left: 10px;
+    margin-right: 10px;
+    word-wrap: break-word;
+}
+
+/*MODAL--------------------------------------*/
+/* Style the username input textbox*/
 .username_input {
     margin: 20px;
 }
+.username_input:focus
+{
+    border: solid #183A1D 1px;
+    outline: none !important;
+    resize: none;
+}
 
+/* Style the modal footer */
 .modal-footer {
     justify-content: center;
 }
 
+/* Style the modal title */
 .modal-title {
     font-weight: bold;
     color: #183A1D;
 }
 
+/* Style the modal shape */
 .modal-dialog {
     border-radius: 15px;
 }
 
+/* Style the modal background-color */
 .modal-content {
-    background-color: #fefbe9;
+    background-color: #e1eedd;
 }
 
+/* Style the modal button to enter the username */
 .username_button {
     background-color: #f0a04b;
     border-color: #183A1D;
@@ -228,6 +241,7 @@ body {
     background-color: #183A1D;
 }
 
+/* Style the modal input textbox */
 .username_input {
     border-radius: 15px;
     border: 1px solid #183A1D;
@@ -235,14 +249,14 @@ body {
     background-color: transparent;
 }
 
+/*
 .username {
     margin-left: 5px;
-}
+}*/
 
-/*
- *  Custom Scrollbar
- */
+/* CUSTOM SCROLLBAR--------------------- */
 
+/* Style the scrollbar shape and colors*/
 ::-webkit-scrollbar-track {
     border-radius: 8px;
 }
@@ -258,4 +272,34 @@ body {
     background-clip: padding-box;
     border: 2px solid transparent;
     background-color: #19911D;
+}
+
+/* NOTIFICATION TOAST ANIMATION---------------- */
+
+.animatedToast {
+    animation: toastIt 4000ms cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+@keyframes toastIt {
+
+    0%,
+    100% {
+        transform: translateX(-150%);
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Style the toast colors */
+.bg-toast{
+    background-color: darkgreen; color: white;
+}
+
+.bg-toast-header{
+    background-color: #488862; color: wheat;
 }

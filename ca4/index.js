@@ -22,14 +22,16 @@ io.on("connection", function (socket) {
   console.log("Made socket connection");
 
   socket.on("new user", function (data) {
-    socket.userId = data;
+    socket.data = data;
+    socket.userId = data.user;
+    // socket.color = data.color;
     activeUsers.add(data);
     //... is the the spread operator, adds to the set while retaining what was in there already
     io.emit("new user", [...activeUsers]);
   });
 
   socket.on("disconnect", function () {
-    activeUsers.delete(socket.userId);
+    activeUsers.delete(socket.data);
     io.emit("user disconnected", socket.userId);
   });
 

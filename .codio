@@ -11,5 +11,6 @@
         "Project Index (static)": "https://{{domain}}/{{index}}",
         "Current File (static)": "https://{{domain}}/{{filepath}}",
         "Box URL": "https://{{domain3000}}/"
-  }
+  },
+  "debugger": [{"type":"NODEJS","command":"ca4/public/js/client.js","before":"","uuid":"344c96f8-8155-5d85-1c3f-f4d236e6cb01","name":"NodeJS"}]
 }
