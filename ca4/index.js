@@ -24,7 +24,7 @@ io.on("connection", function (socket) {
   socket.on("new user", function (data) {
     socket.data = data;
     socket.userId = data.user;
-    // socket.color = data.color;
+
     activeUsers.add(data);
     //... is the the spread operator, adds to the set while retaining what was in there already
     io.emit("new user", [...activeUsers]);

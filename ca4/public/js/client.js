@@ -4,7 +4,6 @@ var isFirstLoad = true;
 
 const txtInputUser = document.getElementById('txtInputUser');
 const sendButton = document.getElementById('btnSend');
-// const inputField = document.getElementById('inputField');
 
 //Required for front end communication between client and server
 const socket = io();
@@ -28,7 +27,7 @@ function createModal() {
 
     //Check if the user has specify the username.
     if (username === "" || username === null || username === undefined) {
-      txtInputUser.value="";
+      txtInputUser.value = "";
       alert("Username cannot be empty.");
     }
     else {
@@ -56,7 +55,12 @@ function createToast(header, message) {
   toastMessage.innerText = message;
 
   //Shows the notification.
-  const toast = new bootstrap.Toast(notificationToast);
+  const toast = new bootstrap.Toast(notificationToast, {
+    animation: true,
+    autohide: true,
+    delay: 100000
+  });
+
   toast.show();
 }
 
@@ -103,7 +107,7 @@ const newUserConnected = function (data) {
     userName = "user-" + id;
   }
   else {
-    userName = String(data);
+    userName = String(data).trim().replaceAll(" ", "-");
   }
 
   userColor = getRandomUserColor();
@@ -115,18 +119,24 @@ const newUserConnected = function (data) {
 };
 
 const addToUsersBox = function (username, userColor) {
-  //This if statement checks whether an element of the user-userlist
+  //This if statement checks whether an element of the user-userbox
   //exists and then inverts the result of the expression in the condition
   //to true, while also casting from an object to boolean
-  if (!!document.querySelector(`.${username}-userlist`)) {
+  if (!!document.getElementById(`${username}-userbox`)) {
     return;
   }
 
+  let isYouLabel = "";
+
+  if (username === userName) {
+    isYouLabel = " (You)";
+  }
+
   //Setup the divs for displaying the connected users.
-  //Id is set to a string including the username.
+  //Id is set to a string including the username.  
   const userBox = `
-    <div class="chat_id ${username}-userlist">
-      <h5 class="username" style="color: ${userColor}">${username}</h5>
+    <div class="chat_id" id="${username}-userbox">
+      <h5 class="username" style="color: ${userColor}">${username} ${isYouLabel}</h5>
     </div>
   `;
 
@@ -168,11 +178,11 @@ socket.on("user disconnected", function (username) {
     messageBox.innerHTML += userBoxChat;
   }
 
-  let userBox = document.querySelector(`.${username}-userlist`);
+  let userBox = document.getElementById(`${username}-userbox`);
 
   if (userBox !== null && userBox !== undefined) {
     //Removes the user from the users list.
-    document.querySelector(`.${username}-userlist`).remove();
+    userBox.remove();
 
     //Notify to other users that the user left the chat.
     createToast("User disconnected", `User ${username} left the chat`);
@@ -260,7 +270,7 @@ socket.on("typing", function (data) {
   let userTypingLabel = document.querySelector(`.${typingUsername}-typing`);
 
   if ((userTypingLabel === null || userTypingLabel === undefined) && typingUsername !== userName) {
-    let userBox = document.querySelector(`.${typingUsername}-userlist`);
+    let userBox = document.getElementById(`${typingUsername}-userbox`);
 
     if (userBox !== null && userBox !== undefined) {
       //Shows the "is typing" label.
